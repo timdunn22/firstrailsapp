@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
-  root to: 'welcome#index'
+  #root to: 'welcome#index'
+  root to: 'welcome#tatic-pages-assignment'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
