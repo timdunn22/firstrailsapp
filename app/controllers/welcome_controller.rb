@@ -6,4 +6,7 @@ class WelcomeController < ApplicationController
   end
   def contact
   end
+  def static-pages-assignment
+  end
+
 end
