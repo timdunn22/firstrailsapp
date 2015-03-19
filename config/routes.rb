@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'welcome/about'
-  get 'welcome/static-pages-assignment'
+  get 'welcome/static_page_assignment'
 
   #root to: 'welcome#index'
   root to: 'welcome#index'
