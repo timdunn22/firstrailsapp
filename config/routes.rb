@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  resources :posts
 
-  get 'welcome/about'
-  get 'welcome/static_page_assignment'
+  get 'about' => 'welcome#about'
+  # get 'welcome/static_page_assignment'
 
   #root to: 'welcome#index'
   root to: 'welcome#index'
