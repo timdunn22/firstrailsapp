@@ -9,10 +9,14 @@ group :production do
    gem 'rails_12factor'
  end
 #add bootstrap gem
-gem 'bootstrap-sass' 
+gem 'bootstrap-sass'
  group :development do
    gem 'sqlite3'
  end
+ #adding rails erd
+ group :development do
+  gem "rails-erd"
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
