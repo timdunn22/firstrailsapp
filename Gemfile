@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
   gem "rails-erd"
 end
 gem 'faker'
+gem 'devise'
 #adding pry rails
 gem 'pry-rails', :group => :development
 # Use SCSS for stylesheets
