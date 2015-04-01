@@ -9,6 +9,7 @@ group :production do
    gem 'rails_12factor'
  end
 #add bootstrap gem
+gem 'figaro', '1.0'
 gem 'bootstrap-sass'
  group :development do
    gem 'sqlite3'
