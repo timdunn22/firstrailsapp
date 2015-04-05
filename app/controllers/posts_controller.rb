@@ -36,4 +36,5 @@ class PostsController < ApplicationController
        render :edit
      end
    end
+   skip_before_action :flash_attack, only: [:new, :index]
 end

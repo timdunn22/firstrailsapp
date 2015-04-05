@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
 
    def flash_attack
      devise_parameter_sanitizer.for(:sign_up) << :name
+     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
    end
 end
