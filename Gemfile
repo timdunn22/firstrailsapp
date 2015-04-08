@@ -10,6 +10,7 @@ group :production do
  end
 #add bootstrap gem
 gem 'figaro', '1.0'
+gem 'responders'
 gem 'bootstrap-sass'
  group :development do
    gem 'sqlite3'
@@ -19,7 +20,7 @@ gem 'bootstrap-sass'
   gem "rails-erd"
 end
 gem 'faker'
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 #adding pry rails
 gem 'pry-rails', :group => :development
 # Use SCSS for stylesheets

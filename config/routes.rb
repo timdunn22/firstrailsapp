@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
 
-  #devise_for :users
+  # devise_for :users
   devise_for :users, :controllers => {:registrations => "devise/registrations"} do
-  get '/register' => 'devise/registrations#new', :as => :new_user_registration
+    get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
-  resources :posts
-
+  resources :topics do
+      resources :posts, except: [:index]
+  end
   resources :advertisements
+  # resources :user_session
+  # resources :user_registration
 
   get 'about' => 'welcome#about'
   # get 'welcome/static_page_assignment'
