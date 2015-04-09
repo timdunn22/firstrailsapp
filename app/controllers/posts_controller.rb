@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    @summary = Summary.find(params[:id])
   end
 
   def new
@@ -40,7 +41,8 @@ class PostsController < ApplicationController
      authorize @post
      if @post.update_attributes(params.require(:post).permit(:title, :body))
        flash[:notice] = "Post was updated."
-       redirect_to @post
+      #  redirect_to @post
+      redirect_to topic_post_path
      else
        flash[:error] = "There was an error saving the post. Please try again."
        render :edit

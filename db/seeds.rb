@@ -18,6 +18,13 @@ require 'faker'
   )
 end
 topics = Topic.all
+50.times do
+ Summary.create!(
+
+   body:  Faker::Lorem.paragraph
+ )
+end
+summaries = Summary.all
 
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
@@ -32,6 +39,7 @@ topics = Topic.all
    Post.create!(
       user:   users.sample,
       topic:  topics.sample,
+      summary: summaries.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )

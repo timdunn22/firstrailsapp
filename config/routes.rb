@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
+  #
+  # get 'summaries/index'
+  #
+  # get 'summaries/new'
+  #
+  # get 'summaries/show'
+  #
+  # get 'summaries/edit'
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "devise/registrations"} do
     get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
   resources :topics do
-      resources :posts, except: [:index]
+      resources :posts, except: [:index] do
+        resources :summaries
+      end
   end
   resources :advertisements
   # resources :user_session
