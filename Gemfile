@@ -61,4 +61,7 @@ group :development, :test do
   gem 'spring','1.3.4'
   gem 'pundit'
   gem 'redcarpet'
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'fog'
 end

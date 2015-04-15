@@ -9,6 +9,17 @@
         <%= f.label :email %>
         <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
       </div>
+      <% if current_user.avatar? %>
+        <div class="form-group">
+          <p>Current avatar</p>
+          <%= image_tag( current_user.avatar.profile.url ) %>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div class="form-group">
           <p>Waiting confirmation for:</p>

@@ -11,5 +11,11 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 SENDGRID_PASSWORD: 1kmha4jn
 SENDGRID_USERNAME: app35038749@heroku.com
+AWS_ACCESS_KEY_ID: AKIAJNDS7Z223OPRDCPQ
+AWS_SECRET_ACCESS_KEY: 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
+development:
+  AWS_BUCKET: parrotscholarbloccitdevelopment
+production:
+  AWS_BUCKET: parrotscholarbloccitproduction
 
  #Bloccit::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
