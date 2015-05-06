@@ -12,21 +12,23 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
   validates :user, presence: true
-  
+
 
  def markdown_title
 
-   render_as_markdown(@post.title)
+   render_as_markdown(title)
 
  end
 
  def markdown_body
-   render_as_markdown(@post.body)
+   render_as_markdown(body)
  end
 
  private
 
  def render_as_markdown(markdown)
+  #  options = [:hard_wrap,:filter_html]
+  #  Redcarpet.new(markdown, *options).to_html.html_safe
    renderer = Redcarpet::Render::HTML.new
    extensions = {fenced_code_blocks: true}
    redcarpet = Redcarpet::Markdown.new(renderer, extensions)

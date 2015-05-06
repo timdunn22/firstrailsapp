@@ -11,14 +11,14 @@ require 'faker'
    user.save!
  end
  users = User.all
- 15.times do
+ 150.times do
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
   )
 end
 topics = Topic.all
-50.times do
+350.times do
  Summary.create!(
 
    body:  Faker::Lorem.paragraph
@@ -35,7 +35,7 @@ summaries = Summary.all
  # The `save` method then saves this User to the database.
 
  # Create Posts
- 50.times do
+ 350.times do
    Post.create!(
       user:   users.sample,
       topic:  topics.sample,
@@ -44,12 +44,7 @@ summaries = Summary.all
      body:   Faker::Lorem.paragraph
    )
  end
- Post.create!(
-  title: "The Tim Post",
-  body: "We are wonderful because we do Rails!
-  We are way better than php people
-  and Java people."
- )
+
  posts = Post.all
 
  # Create Comments

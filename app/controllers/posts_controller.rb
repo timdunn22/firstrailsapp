@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 
   def index
-  #@posts = Post.all
-  #authorize @posts
+  @posts = Post.all
+  @posts.per_page(100)
+
+  authorize @posts
   @posts = policy_scope(Post)
   end
 
