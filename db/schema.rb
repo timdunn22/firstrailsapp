@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413103706) do
+ActiveRecord::Schema.define(version: 20150506233124) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "copy"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20150413103706) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

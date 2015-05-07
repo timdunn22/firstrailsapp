@@ -44,12 +44,7 @@ summaries = Summary.all
      body:   Faker::Lorem.paragraph
    )
  end
- Post.create!(
-  title: "The Tim Post",
-  body: "We are wonderful because we do Rails!
-  We are way better than php people
-  and Java people."
- )
+
  posts = Post.all
 
  # Create Comments
@@ -57,6 +52,7 @@ summaries = Summary.all
    Comment.create!(
    # user: users.sample,   # we have not yet associated Users with Comments
      post: posts.sample,
+     user: users.sample,
      body: Faker::Lorem.paragraph
    )
  end

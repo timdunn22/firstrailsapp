@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @summary = Summary.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def new

@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
    role == 'moderator'
  end
  has_many :posts
+ has_many :comments
 
  mount_uploader :avatar, AvatarUploader
- 
+
 end
