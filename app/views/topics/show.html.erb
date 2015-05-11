@@ -8,10 +8,14 @@
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
-      <div class="media">
+      <div class="media row">
+        <div class="span1">
+          <%= image_tag(post.image.post.url) if post.image? %>
+        </div>
+        <div class="span7">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to (markdown_to_html post.title), [@topic, post] %>
+            <%= link_to (post.markdown_title ), [@topic, post] %>
           </h4>
           <small>
             <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
@@ -20,6 +24,7 @@
             <%= post.comments.count %> Comments
           </small>
         </div>
+      </div>
       </div>
     <% end %>
   </div>

@@ -52,7 +52,7 @@ class PostsController < ApplicationController
    private
 
    def post_params
-     params.require(:post).permit(:title, :body)
+     params.require(:post).permit(:title, :body, :image, :image_cache)
    end
    skip_before_action :flash_attack, only: [:new, :index]
 end
