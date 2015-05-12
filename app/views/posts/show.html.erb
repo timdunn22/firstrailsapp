@@ -1,8 +1,17 @@
 <h1><%= @post.markdown_title %></h1>
+<p><%= image_tag(@post.image.post.url) if @post.image? %></p>
 <% if policy(@post).update? %>
   <%= link_to "Edit Post", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
 <% end %>
+<p><%= @post.markdown_body %></p>
+<div class="col-md-8">
+  <small>
+     <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+     submitted <%= time_ago_in_words(@post.created_at) %> ago by
+     <%= @post.user.name %>
+   </small>
 
+</div>
 <div class="row">
   <div class="col-md-8">
     <p>Summary:</p>
@@ -10,15 +19,16 @@
   <div class="col-md-8">
     <p><%= link_to "#{@summary.body}",topic_post_summary_path(@post.topic, @post, @summary)  %></p>
   </div>
-  <div class="col-md-8">
-    <small>
-       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-       submitted <%= time_ago_in_words(@post.created_at) %> ago by
-       <%= @post.user.name %>
-     </small>
-     <p><%= image_tag(@post.image.post.url) if @post.image? %></p>
-    <p><%= @post.markdown_body %></p>
-  </div>
+<% if policy(@comment).create? %>
+  <div class="row">
+    <div class="col-md-8">
+      <p>Comments:</p>
+    </div>
+    <div class="col-md-8">
+      <%= render partial: 'comments/comment', collection: @post.comments %>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
+    </div>
+<% end %>
 
   <div class="col-md-4">
 
