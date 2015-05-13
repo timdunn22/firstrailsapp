@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   def create
      @post = Post.find(params[:post_id])
     @topic = Topic.find(params[:topic_id])
-     @comment = @post.comments.new(params.require(:comment).permit(:body))
-
+    #  @comment = @post.comments.new(params.require(:comment).permit(:body))
+    @comment = @post.comments.new(params[:user_id])
       authorize @comment
      if @comment.save
        redirect_to :back, notice: "Comment was saved successfully."
