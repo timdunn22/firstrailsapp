@@ -70,4 +70,5 @@ group :development, :test do
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog'
+  gem 'will_paginate', '~> 3.0.5'
 end

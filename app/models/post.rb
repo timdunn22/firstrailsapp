@@ -28,6 +28,8 @@ class Post < ActiveRecord::Base
  private
 
  def render_as_markdown(markdown)
+  #  options = [:hard_wrap,:filter_html]
+  #  Redcarpet.new(markdown, *options).to_html.html_safe
    renderer = Redcarpet::Render::HTML.new
    extensions = {fenced_code_blocks: true}
    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
