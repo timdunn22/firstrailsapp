@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
-    @summary = Summary.find(params[:id])
+    # @summary = Summary.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comments = Comment.all
     authorize @comment
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
    if @post.save
      flash[:notice] = "Post was saved."
-     redirect_to @post
+     redirect_to [@topic,@post]
    else
      flash[:error] = "There was an error saving the post. Please try again."
      render :new
@@ -54,19 +54,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
   end
-  # def update
-  #   @topic = Topic.find(params[:topic_id])
-  #    @post = Post.find(params[:id])
-  #    authorize @post
-  #    if @post = current_user.posts.build(post_params)
-  #      flash[:notice] = "Post was updated."
-  #     #  redirect_to @post
-  #     redirect_to topic_post_path
-  #    else
-  #      flash[:error] = "There was an error saving the post. Please try again."
-  #      render :edit
-  #    end
-  #  end
+
   def update
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])

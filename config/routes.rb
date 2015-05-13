@@ -14,12 +14,22 @@ Rails.application.routes.draw do
     get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
   resources :users, only: [:update]
+  # resources :topics do
+  #     resources :posts, except: [:index] do
+  #       resources :summaries
+  #       resources :comments, only: [:create, :destroy]
+  #     end
+  # end
   resources :topics do
-      resources :posts, except: [:index] do
-        resources :summaries
-        resources :comments, only: [:create, :destroy]
-      end
-  end
+     resources :posts, except: [:index]
+   end
+
+   resources :posts, only: [] do
+     resources :comments, only: [:create, :destroy]
+   end
+   resources :posts, only: [] do
+     resources :summaries
+   end
   resources :advertisements
   # resources :user_session
   # resources :user_registration
