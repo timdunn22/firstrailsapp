@@ -20,6 +20,14 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :new]
       end
   end
+  resources :topics do
+    resources :posts, except: [:index]
+  end
+
+  resources :posts, only: [] do
+    resources :comments, only: [:create, :destroy]
+    resources :summaries
+  end
   resources :advertisements
   # resources :user_session
   # resources :user_registration
