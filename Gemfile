@@ -19,6 +19,12 @@ gem 'bootstrap-sass'
  group :development do
   gem "rails-erd"
 end
+group :development do
+  gem "binding_of_caller"
+end
+group :development do
+  gem "better_errors"
+end
 gem 'faker'
 gem 'devise', '~> 3.4.0'
 #adding pry rails

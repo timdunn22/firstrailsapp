@@ -23,6 +23,7 @@ class Post < ActiveRecord::Base
  def markdown_body
    render_as_markdown(body)
  end
+ mount_uploader :image, ImageUploader
 
  private
 
