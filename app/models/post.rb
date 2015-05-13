@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
-  has_many :comments
-  has_one :summary
+  has_many :comments, dependent: :destroy
+  has_one :summary, dependent: :destroy
 
   scope :ordered_by_title, -> {order('title asc') }
   scope :ordered_by_reverse_created_at, -> { order('created_at desc') }
