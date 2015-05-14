@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_one :summary, dependent: :destroy
-  # 
+  #
   # scope :ordered_by_title, -> {order('title asc') }
   # scope :ordered_by_reverse_created_at, -> { order('created_at desc') }
   belongs_to :user
@@ -41,7 +41,14 @@ class Post < ActiveRecord::Base
 
       update_attribute(:rank, new_rank)
     end
+    after_create :create_vote
+
  private
+
+ def create_vote
+   user.votes.create(post: self, value: 1)
+ end
+
 
  def render_as_markdown(markdown)
   #  options = [:hard_wrap,:filter_html]
