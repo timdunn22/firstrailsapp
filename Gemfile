@@ -25,6 +25,9 @@ end
 group :development do
   gem "better_errors"
 end
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
 gem 'faker'
 gem 'devise', '~> 3.4.0'
 #adding pry rails
