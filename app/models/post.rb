@@ -45,6 +45,12 @@ class Post < ActiveRecord::Base
  def create_vote
    user.votes.create(post: self, value: 1)
  end
+ def save_with_initial_vote
+   ActiveRecord::Base.transaction do
+     post2 = Post.create(title: 'Whatever', body: 'Post bodies must be pretty long.')
+     post2.create_vote #=> throws error
+   end
+ end
 
 private
  def render_as_markdown(markdown)
