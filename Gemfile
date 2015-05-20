@@ -27,6 +27,7 @@ group :development do
 end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
 end
 gem 'faker'
 gem 'devise', '~> 3.4.0'
