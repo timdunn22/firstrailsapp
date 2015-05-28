@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "devise/registrations"} do
     get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
-  resources :users, only: [:update]
+  resources :users, only: [:update, :show, :index]
 
 
   resources :topics do
-    resources :posts, except: [:index]
+    resources :posts, except: [:index], controller: 'topics/posts'
   end
 
 
-   resources :posts, only: [] do
+   resources :posts, only: [:index] do
      resources :comments, only: [:create, :destroy]
      resources :favorites, only: [:create, :destroy]
      post '/up-vote' => 'votes#up_vote', as: :up_vote
