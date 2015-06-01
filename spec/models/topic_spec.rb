@@ -3,8 +3,8 @@ describe Topic do
   describe "scopes" do
 
     before do
-      @public_topic = Topic.create # default is public
-      @private_topic = Topic.create(public: false)
+      @public_topic = Topic.create(name: "A public topic", description:("This is an example of a public topic")) # default is public
+      @private_topic = Topic.create(name:"A private topic", description:("This is an example of a private topic"),public: false)
     end
 
     describe "publicly_viewable" do
