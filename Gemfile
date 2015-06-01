@@ -12,6 +12,8 @@ group :production do
 gem 'figaro', '1.0'
 gem 'responders'
 gem 'bootstrap-sass'
+gem 'newrelic_rpm'
+gem 'puma'
  group :development do
    gem 'sqlite3'
  end
