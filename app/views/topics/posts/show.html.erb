@@ -33,13 +33,14 @@
     <div class="col-md-8">
       <h2>Comments:</h2>
     </div>
-    <div class="col-md-8">
+    <div class='js-comments'>
       <%= render partial: 'comments/comment', collection: @post.comments %>
+    </div>
+    <div class='new-comment'>
       <%= render partial: 'comments/form', locals: { post: @post, comment: @post.comments.new } %>
     </div>
+  </div>
 <% end %>
 
-  <div class="col-md-4">
-
-  </div>
+  
 </div>
