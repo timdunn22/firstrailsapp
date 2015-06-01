@@ -7,14 +7,15 @@ FactoryGirl.define do
      confirmed_at Time.now
 
      factory :user_with_post_and_comment do
-       transient do
-         comments_count 5
-       end
-       transient do
-         posts_count 5
-       end
+      #  transient do
+      #    comments_count 5
+      #  end
+      #  transient do
+      #    posts_count 5
+      #  end
        after(:build) {|user|
-         user.create(:comment)
+         create(:post, user: user)
+         create(:comment, user:user, post: user.posts.first)
          }
      end
 
