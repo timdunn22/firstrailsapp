@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "devise/registrations"} do
     get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
+<<<<<<< HEAD
   resources :users, only: [:update, :show, :index]
+=======
+  resources :users, only: [:update, :show]
+>>>>>>> public-profiles
 
 
   resources :topics do
