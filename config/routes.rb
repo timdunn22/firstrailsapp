@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "devise/registrations"} do
     get '/register' => 'devise/registrations#new', :as => :new_user_registration
   end
-<<<<<<< HEAD
+
   resources :users, only: [:update, :show, :index]
-=======
-  resources :users, only: [:update, :show]
->>>>>>> public-profiles
+
 
 
   resources :topics do
@@ -22,9 +20,9 @@ Rails.application.routes.draw do
      post '/up-vote' => 'votes#up_vote', as: :up_vote
      post '/down-vote' => 'votes#down_vote', as: :down_vote
    end
-   resources :posts, only: [] do
-     resources :summaries
-   end
+  #  resources :posts, only: [] do
+  #    resources :summaries
+  #  end
 
   resources :advertisements
   # resources :user_session
