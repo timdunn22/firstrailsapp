@@ -34,6 +34,8 @@ group :development, :test do
 end
 gem 'faker'
 gem 'devise', '~> 3.4.0'
+gem 'haml-rails'
+gem 'haml-lint'
 #adding pry rails
 gem 'pry-rails', :group => :development
 # Use SCSS for stylesheets
